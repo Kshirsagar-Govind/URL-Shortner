@@ -11,7 +11,7 @@ const CREATE_SHORT_URL = async (URL) => {
     });
     return result;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 
@@ -32,6 +32,7 @@ const REDIRECT_TO_URL = async (shortCode, clientIp) => {
     return result.redirectTo;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
