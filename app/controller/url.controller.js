@@ -30,7 +30,19 @@ const REDIRECT_TO_URL = async (req, res) => {
   }
 };
 
+const SHORT_URL_ANALYTICS = async (req, res) => {
+  try {
+    let { shortCode } = req.params;
+    let result = await URLServices.SHORT_URL_ANALYTICS(shortCode);
+    return res.status(200).json({ data: result, message: "Data fetched." });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   CREATE_SHORT_URL,
   REDIRECT_TO_URL,
+  SHORT_URL_ANALYTICS,
 };

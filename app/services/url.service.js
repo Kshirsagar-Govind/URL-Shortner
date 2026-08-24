@@ -36,7 +36,17 @@ const REDIRECT_TO_URL = async (shortCode, clientIp) => {
   }
 };
 
+const SHORT_URL_ANALYTICS = async (shortCode) => {
+  try {
+    let result = await URLSchema.find({ shortCode: shortCode });
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   CREATE_SHORT_URL,
   REDIRECT_TO_URL,
+  SHORT_URL_ANALYTICS,
 };
